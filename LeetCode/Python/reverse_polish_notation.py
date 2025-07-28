@@ -4,7 +4,7 @@
 def erpn(tokens: list[str]) -> int:
 
   stack = []
-  result = 0
+  
   for token in tokens:
 
     if token in {"+", "-", "*", "/"}:
@@ -14,12 +14,12 @@ def erpn(tokens: list[str]) -> int:
 
       if token == "+":
         result = a+b
-      if token == "-":
+      elif token == "-":
         result = a-b
-      if token == "*":
+      elif token == "*":
         result = a*b
-      if token == "/":
-        result == a//b
+      elif token == "/":
+        result = int(a/b) #truncate toward 0. a//b truncates towards -inf
 
       stack.append(result)
 
@@ -32,3 +32,4 @@ def erpn(tokens: list[str]) -> int:
 if __name__ == "__main__":
   print(erpn(["2","1","+","3","*"]))
   print(erpn(["4","13","5","/","+"]))
+  print(erpn(["10","6","9","3","+","-11","*","/","*","17","+","5","+"]))

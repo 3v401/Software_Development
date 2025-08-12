@@ -8,14 +8,14 @@ def lcs(nums: list[int]) -> int:
   for num in numset:
 
     if num-1 not in numset:
-      # Beginning of sequence
+      # find the first element of sequence
       length = 1
       while num + length in numset:
-        # While subsequent exists, increase length
+        # find the last consecutive element of sequence
         length +=1
       
       maxlen = max(maxlen, length)
-  
+      # longest consecutive substring length
   return maxlen
 
 
